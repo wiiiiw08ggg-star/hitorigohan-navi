@@ -1,0 +1,103 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Yu Gothic", "Meiryo", sans-serif;
+  background: #faf6ef;
+  color: #514638;
+  line-height: 1.7;
+}
+
+.header {
+  text-align: center;
+  padding: 35px 20px;
+  background: #e8d8c3;
+  color: #514638;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header p {
+  margin-bottom: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 760px;
+  margin: 25px auto;
+}
+
+.welcome {
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  background: #f2e6d8;
+  text-align: center;
+}
+
+.welcome h2 {
+  margin-top: 0;
+}
+
+.panel {
+  padding: 22px;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  background: #fffdf9;
+  border: 1px solid #eadfce;
+  box-shadow: 0 4px 12px #5b463510;
+}
+
+.panel h2 {
+  margin-top: 0;
+  color: #80664b;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 7px 0 12px;
+  border: 1px solid #d8c8b4;
+  border-radius: 10px;
+  background: white;
+  color: #514638;
+  font-size: 16px;
+}
+
+button {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #8b9b76;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #72835e;
+}
+
+ul {
+  padding-left: 25px;
+}
+
+#recipeList > div {
+  padding: 15px;
+  margin-top: 12px;
+  border-radius: 12px;
+  background: #f5efe5;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  color: #8a7a67;
+}

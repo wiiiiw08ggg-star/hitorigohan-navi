@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#e8d8c3">
+  <title>ひとりごはんナビ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>🍳 ひとりごはんナビ</h1>
+    <p>今日のごはん、いっしょに見つけよう。</p>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <h2>今日、何食べる？</h2>
+      <p>冷蔵庫にある食材から、ぴったりのレシピを探そう！</p>
+    </section>
+
+    <section class="panel">
+      <h2>🥕 食材を登録</h2>
+      <p>使いたい食材を入力してみてね。</p>
+      <input id="ingredientInput" type="text" placeholder="例：たまご、玉ねぎ">
+      <button id="addIngredient">食材を追加</button>
+      <ul id="ingredientList"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>🍽️ レシピを探す</h2>
+      <label for="budget">予算：</label>
+      <select id="budget">
+        <option value="500">500円以内</option>
+        <option value="800">800円以内</option>
+        <option value="1000">1000円以内</option>
+      </select>
+
+      <label for="cookTime">調理時間：</label>
+      <select id="cookTime">
+        <option value="15">15分以内</option>
+        <option value="30">30分以内</option>
+        <option value="60">60分以内</option>
+      </select>
+
+      <button id="searchRecipes">レシピを探す</button>
+      <div id="recipeList"></div>
+    </section>
+
+    <section class="panel">
+      <h2>🛒 買い物リスト</h2>
+      <ul id="shoppingList"></ul>
+      <input id="shoppingInput" type="text" placeholder="買うものを入力">
+      <button id="addShopping">リストに追加</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>おいしく、楽しく、ひとりごはん。</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

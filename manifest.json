@@ -1,0 +1,11 @@
+
+{
+  "name": "ひとりごはんナビ",
+  "short_name": "ごはんナビ",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf6ef",
+  "theme_color": "#e8d8c3",
+  "description": "食材からレシピを探せる、ひとりごはんサポートアプリ"
+}
