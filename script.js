@@ -21,22 +21,41 @@ const recipes = [
     ingredients: ["たまご", "ごはん", "ねぎ"],
     price: 200,
     time: 10,
-    description: "卵とごはんで作れる簡単メニュー！"
+    description: "卵とごはんで作れる簡単メニュー！",
+steps: [
+    "卵をボウルに入れて溶く。",
+    "フライパンで卵を炒める。",
+    "ごはんを加えて、ほぐしながら炒める。",
+    "塩こしょうで味を整えたら完成！"
+]
   },
   {
     name: "オムライス",
     ingredients: ["たまご", "ごはん", "玉ねぎ", "ケチャップ"],
     price: 400,
     time: 25,
-    description: "ふわふわ卵の定番メニュー！"
-  },
+    description: "ふわふわ卵の定番メニュー！",
+steps: [
+    "玉ねぎを細かく切る。",
+    "フライパンで玉ねぎを炒める。",
+    "ごはんとケチャップを加えて炒める。",
+    "別のフライパンで溶き卵を焼く。",
+    "お皿にケチャップライスを盛り、卵をのせる。",
+    "ケチャップをかけたら完成！"
+]  },
   {
     name: "親子丼",
     ingredients: ["鶏肉", "たまご", "玉ねぎ", "ごはん"],
     price: 400,
     time: 20,
-    description: "鶏肉と卵のやさしい味わい！"
-  },
+    description: "鶏肉と卵のやさしい味わい！",
+steps: [
+    "鶏肉と玉ねぎを食べやすい大きさに切る。",
+    "フライパンに水と調味料を入れて温める。",
+    "鶏肉と玉ねぎを加えて火を通す。",
+    "溶き卵を回し入れて、ふたをする。",
+    "卵にしっかり火が通ったら、ごはんにのせて完成！"
+]  },
   {
     name: "牛丼",
     ingredients: ["牛肉", "玉ねぎ", "ごはん"],
@@ -717,6 +736,82 @@ const recipes = [
     time: 10,
     description: "バターの香りが楽しめる一品！"
   }];
+// 作り方が登録されていないレシピにも、料理の種類に合わせて手順を表示する
+function getRecipeSteps(recipe) {
+  const name = recipe.name;
+  if (recipe.steps) {
+    return recipe.steps;
+}
+  if (/スープ|味噌汁|みそ汁|ポタージュ|ミネストローネ/.test(name)) {
+    return [
+      "材料を食べやすい大きさに切る。",
+      "鍋に水やスープの材料、火の通りにくい具材を入れて温める。",
+      "具材がやわらかくなるまで煮る。",
+      "味を整え、器に盛りつけたら完成！"
+    ];
+  }
+
+  if (/パスタ|ナポリタン|カルボナーラ|ペペロンチーノ/.test(name)) {
+    return [
+      "鍋に湯を沸かし、パスタを袋の表示時間を目安にゆでる。",
+      "具材を食べやすい大きさに切り、フライパンで炒める。",
+      "ゆでたパスタと調味料を加えて、全体をよく混ぜる。",
+      "味を整えて、お皿に盛りつけたら完成！"
+    ];
+  }
+
+  if (/うどん|そば|そうめん|ラーメン/.test(name)) {
+    return [
+      "具材を食べやすい大きさに切る。",
+      "麺を袋の表示に合わせてゆでる、または温める。",
+      "鍋や器にだし・つゆを用意し、具材を加えて火を通す。",
+      "麺と合わせ、器に盛りつけたら完成！"
+    ];
+  }
+
+  if (/丼|ごはん|チャーハン|カレーライス|ドライカレー/.test(name)) {
+    return [
+      "材料を食べやすい大きさに切る。",
+      "フライパンや鍋で具材を炒め、必要な調味料を加える。",
+      "肉や卵などを使う場合は、中までしっかり火を通す。",
+      "温かいごはんにのせる、またはごはんと混ぜたら完成！"
+    ];
+  }
+
+  if (/生姜焼き|照り焼き|ハンバーグ|カツ|そぼろ|肉|チキン|つくね|ミートボール/.test(name)) {
+    return [
+      "材料を食べやすい大きさに切る。ひき肉料理は材料と調味料をよく混ぜる。",
+      "フライパンに油を少量ひき、具材を並べて中火で加熱する。",
+      "裏返して反対側も焼き、肉の中心までしっかり火を通す。",
+      "調味料をからめて味を整え、お皿に盛りつけたら完成！"
+    ];
+  }
+
+  if (/卵|たまご|オムレツ|ニラ玉|ガレット/.test(name)) {
+    return [
+      "野菜などの材料を食べやすい大きさに切る。",
+      "ボウルに卵を割り入れ、必要に応じて塩などを加えて溶く。",
+      "フライパンで具材を炒め、卵を加えて形を整えながら加熱する。",
+      "卵にしっかり火が通ったら、お皿に盛りつけて完成！"
+    ];
+  }
+
+  if (/サラダ|おひたし|浅漬け|ナムル|冷ややっこ/.test(name)) {
+    return [
+      "野菜を洗い、食べやすい大きさに切る。",
+      "必要な材料は、袋や説明に合わせてゆでるなど下ごしらえをする。",
+      "調味料を加えて、全体をよく混ぜ合わせる。",
+      "器に盛りつけたら完成！"
+    ];
+  }
+
+  return [
+    "材料を洗い、食べやすい大きさに切る。",
+    "フライパンや鍋に材料を入れ、焦げないように様子を見ながら加熱する。",
+    "調味料を加えて味を整え、材料にしっかり火を通す。",
+    "器に盛りつけたら完成！"
+  ];
+}
 // リスト表示
 function showList(items, listElement, storageKey) {
   listElement.innerHTML = "";
@@ -773,19 +868,32 @@ addShoppingButton.addEventListener("click", () => {
 searchButton.addEventListener("click", () => {
   const budget = Number(document.getElementById("budget").value);
   const cookTime = Number(document.getElementById("cookTime").value);
-
+  const genre = document.getElementById("genre").value;
   recipeList.innerHTML = "";
 
   const matchedRecipes = recipes.filter(recipe => {
     const hasIngredient = recipe.ingredients.some(item =>
       ingredients.includes(item)
     );
+  const recipeText = recipe.name + recipe.ingredients.join(" ");
 
-    return hasIngredient &&
-      recipe.price <= budget &&
-      recipe.time <= cookTime;
-  });
+let recipeGenre = "side";
 
+if (/スープ|味噌汁|みそ汁|ポタージュ/.test(recipeText)) {
+    recipeGenre = "soup";
+} else if (/パスタ|うどん|そば|ラーメン|焼きそば|そうめん/.test(recipeText)) {
+    recipeGenre = "noodles";
+} else if (/ごはん|チャーハン|丼|おにぎり|雑炊/.test(recipeText)) {
+    recipeGenre = "rice";
+} else if (/鶏肉|豚肉|牛肉|ひき肉|ベーコン/.test(recipeText)) {
+    recipeGenre = "meat";
+} else if (/卵|たまご|キャベツ|にんじん|玉ねぎ|野菜/.test(recipeText)) {
+    recipeGenre = "vegetables";
+}return hasIngredient &&
+    recipe.price <= budget &&
+    recipe.time <= cookTime &&
+    (genre === "all" || recipeGenre === genre);
+});
   if (matchedRecipes.length === 0) {
     recipeList.textContent =
       "条件に合うレシピが見つからなかったよ。食材や条件を変えてみてね！";
@@ -837,7 +945,43 @@ searchButton.addEventListener("click", () => {
       showList(shoppingItems, shoppingList, "shoppingItems");
       alert("買い物リストに追加したよ！");
     });
+const stepsButton = document.createElement("button");
+stepsButton.textContent = "作り方を見る";
 
+stepsButton.addEventListener("click", () => {
+    const detail = document.getElementById("recipeDetail");
+    const content = document.getElementById("recipeDetailContent");
+    const searchSection = recipeList.closest("section");
+
+    content.innerHTML = "";
+
+    const heading = document.createElement("h2");
+    heading.textContent = recipe.name;
+    content.appendChild(heading);
+
+    const stepsTitle = document.createElement("h3");
+    stepsTitle.textContent = "作り方";
+    content.appendChild(stepsTitle);
+
+    const list = document.createElement("ol");
+
+   (recipe.steps || getRecipeSteps(recipe)).forEach(step => {        const item = document.createElement("li");
+        item.textContent = step;
+        list.appendChild(item);
+    });
+
+    content.appendChild(list);
+
+    detail.hidden = false;
+    searchSection.hidden = true;
+
+    document.getElementById("backToRecipes").onclick = () => {
+        detail.hidden = true;
+        searchSection.hidden = false;
+    };
+});
+
+card.appendChild(stepsButton);
     card.append(title, description, info, used, shoppingButton);
 
     // これが抜けていたよ！
