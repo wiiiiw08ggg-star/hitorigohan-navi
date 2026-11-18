@@ -869,7 +869,6 @@ searchButton.addEventListener("click", () => {
   const budget = Number(document.getElementById("budget").value);
   const cookTime = Number(document.getElementById("cookTime").value);
   const genre = document.getElementById("genre").value;　
-  alert(genre);
   recipeList.innerHTML = "";
 
   const matchedRecipes = recipes.filter(recipe => {
